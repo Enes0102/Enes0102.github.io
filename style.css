@@ -191,7 +191,6 @@ html[lang="tr"] .lang-pill { transform: translateX(34px); }
 .thumb-nitro { background: radial-gradient(120% 140% at 85% 0%, #ff8a3d 0%, #e5484d 38%, #3a0d1a 100%); }
 .thumb-incursio { background: radial-gradient(120% 140% at 15% 0%, #4cc9f0 0%, #3a5bd9 40%, #0d1235 100%); }
 .thumb-horror { background: radial-gradient(100% 120% at 50% 110%, #5a1a1a 0%, #1a0f0f 55%, #050505 100%); }
-.thumb-site { background: radial-gradient(120% 140% at 80% 0%, #a3e635 0%, #18a058 40%, #08291a 100%); }
 
 .card-body { padding: 20px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
 .card-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
@@ -202,7 +201,7 @@ html[lang="tr"] .lang-pill { transform: translateX(34px); }
   flex-shrink: 0; font: 500 11px var(--mono); text-transform: uppercase; letter-spacing: 0.06em;
   padding: 4px 8px; border-radius: 6px;
 }
-.status-done, .status-live { background: var(--green-soft); color: var(--green); }
+.status-done { background: var(--green-soft); color: var(--green); }
 .status-wip { background: var(--amber-soft); color: var(--amber); }
 
 .tags { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
@@ -214,6 +213,10 @@ html[lang="tr"] .lang-pill { transform: translateX(34px); }
 .card-links a { color: var(--muted); transition: color 0.2s ease; }
 .card-links a::after { content: " →"; display: inline-block; transition: transform 0.2s var(--ease-out); }
 .card-links .link-primary { color: var(--accent); }
+
+/* Wide card: spans both columns, image beside text */
+.card-wide { grid-column: 1 / -1; flex-direction: row; }
+.card-wide .thumb { aspect-ratio: auto; width: 46%; min-height: 200px; flex-shrink: 0; }
 
 /* ---------- About ---------- */
 .about { display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; }
@@ -285,6 +288,8 @@ html[lang="tr"] .lang-pill { transform: translateX(34px); }
 /* ---------- Responsive ---------- */
 @media (max-width: 760px) {
   .grid, .about { grid-template-columns: 1fr; }
+  .card-wide { flex-direction: column; }
+  .card-wide .thumb { width: 100%; aspect-ratio: 16 / 8; min-height: 0; }
   .about { gap: 32px; }
   .hero { padding-top: 56px; }
   .section { padding: 48px 16px; }
