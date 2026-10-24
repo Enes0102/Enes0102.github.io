@@ -188,8 +188,12 @@ html[lang="tr"] .lang-pill { transform: translateX(34px); }
   position: relative; z-index: 1;
   font: 500 12px var(--mono); letter-spacing: 0.14em; color: rgba(255,255,255,0.85);
 }
-.thumb-nitro { background: radial-gradient(120% 140% at 85% 0%, #ff8a3d 0%, #e5484d 38%, #3a0d1a 100%); }
-.thumb-incursio { background: radial-gradient(120% 140% at 15% 0%, #4cc9f0 0%, #3a5bd9 40%, #0d1235 100%); }
+.thumb-img { padding: 0; background: var(--border); }
+.thumb-img::after { display: none; }
+.thumb-img img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.6s var(--ease-out);
+}
 .thumb-horror { background: radial-gradient(100% 120% at 50% 110%, #5a1a1a 0%, #1a0f0f 55%, #050505 100%); }
 
 .card-body { padding: 20px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
@@ -262,6 +266,7 @@ html[lang="tr"] .lang-pill { transform: translateX(34px); }
   .btn-primary:hover { opacity: 0.88; }
   .btn-ghost:hover { border-color: var(--muted); }
   .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+  .card:hover .thumb-img img { transform: scale(1.04); }
   .card-links a:hover { color: var(--text); }
   .card-links .link-primary:hover { color: var(--accent); }
   .card-links a:hover::after { transform: translateX(3px); }
